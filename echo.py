@@ -42,7 +42,7 @@ def function(page_start, page_end):
 	problem_list = []
 	content_list = []
 	# 连接数据库
-	db = pymysql.connect('localhost', 'root', 'Ln/y&aF37vBnmdt4', 'echo')
+	db = pymysql.connect('localhost', 'username', 'password', 'database')
 	# 创建游标
 	cursor = db.cursor()
 	for num in range(page_start, page_end):
