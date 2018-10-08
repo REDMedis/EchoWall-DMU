@@ -1,0 +1,16 @@
+/**app.wxss**/
+.container {
+  
+  background-color: #f4f4f4;
+  font-family: PingFangSC-Light,helvetica,'Heiti SC';
+} 
+
+view,image,text,navigator{
+  box-sizing: border-box;
+  padding:0;
+  margin:0;
+}
+
+view{
+  display: block;
+}

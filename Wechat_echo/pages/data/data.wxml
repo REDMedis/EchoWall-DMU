@@ -1,0 +1,18 @@
+<!--pages/data/data.wxml-->
+<view class = 'container'>
+
+<view>
+  fuck
+</view>
+  <view wx:for = "{{echowall}}" wx:key = "{{item.id}}" class = "item ripple" bindtap='itemTap' data-id="{{item}}">
+    <view class="title">
+      {{item.title}}
+    </view>
+    <view class="context">
+      {{item.box}}
+    </view>
+    <view class="time">
+      {{item.time}}
+    </view>
+  </view>
+</view>

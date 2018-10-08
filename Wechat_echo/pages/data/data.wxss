@@ -1,0 +1,83 @@
+/* pages/data/data.wxss */
+
+.item {
+  background-color: #fff;
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+}
+
+.fuck{
+  width: 750rpx;
+  overflow: hidden;
+  background: #fff;
+  color: #333;
+  margin-top: 20rpx;
+}
+
+
+.item {
+ border-top: 1px solid #d9d9d9;
+ height: 144rpx;
+ width: 750rpx;
+}
+
+.title {
+  margin-top: 10rpx;
+  margin-left: 20rpx;
+  display: block;
+}
+
+.context {
+  margin-top: 10rpx;
+  margin-left: 20rpx;
+  font-size: 26rpx;
+  color: #999999;
+}
+
+.time {
+  margin-left: 550rpx;
+  margin-bottom: 0rpx;
+  font-size: 18rpx;
+  color: #999999;
+}
+
+
+.ripple:active:after {
+    transform: scale(0, 0);
+    opacity: .3;
+    transition: 0s;
+}
+
+.ripple:after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    background-image: radial-gradient(circle, #666 10%, transparent 10.01%);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    transform: scale(10, 10);
+    opacity: 0;
+    transition: transform .3s, opacity .5s;
+}
+
+.ripple {
+    position: relative;
+    overflow: hidden;
+}
+
+
+
+/* .navigator-hover {
+	
+} */
+
+
+
+
+

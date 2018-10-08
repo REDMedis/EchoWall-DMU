@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "卢本伟牛逼",
+  "enablePullDownRefresh":  true ,
+  "backgroundTextStyle" : "light",
+  "onReachBottomDistance": 50
+}

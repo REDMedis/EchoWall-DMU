@@ -1,0 +1,8 @@
+<!--pages/context/context.wxml-->
+<view >
+  {{echowall.title}}
+  {{echowall.box}}
+  {{echowall.problem}}
+  {{echowall.reply}}
+  {{echowall.time}}
+</view>
