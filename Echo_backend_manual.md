@@ -14,7 +14,7 @@
 
 ### MySQL 配置
 
-MySQL 安装时需注意版本不宜过低，过低的版本如 5.5，5.7 会出现不兼容原始数据的字符集导致无法写入数据文件或是出现字符乱码等问题，同时由于 MySQL 8.0 新增了较强的数据库加密方式，这可能会导致与后台进行连接时出现问题，因此在安装时要保证采用较为宽松的密码验证方式即： * Use Legacy  Authentication Method (Retain MySQL 5.x Compatibility ) *
+MySQL 安装时需注意版本不宜过低，过低的版本如 5.5，5.7 会出现不兼容原始数据的字符集导致无法写入数据文件或是出现字符乱码等问题，同时由于 MySQL 8.0 新增了较强的数据库加密方式，这可能会导致与后台进行连接时出现问题，因此在安装时要保证采用较为宽松的密码验证方式即： *Use Legacy  Authentication Method (Retain MySQL 5.x Compatibility )*
 
 ### Node 配置
 
