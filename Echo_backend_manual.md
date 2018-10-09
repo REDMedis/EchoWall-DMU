@@ -22,8 +22,11 @@ MySQL 安装时需注意版本不宜过低，过低的版本如 5.5，5.7 会出
 1. 下载源代码包 ` wget https://npm.taobao.org/mirrors/node/v10.11.0/node-v10.11.0-linux-x64.tar.xz `
 2. 解压代码包
 3. 为 node 和 npm 指令添加软连接：
+
 `ln -s /node_locate/bin/node /usr/local/bin/node `
+
 `ln -s /node_locate/bin/npm /usr/local/bin/npm `
+
 4. 测试 Node 是否成功安装
 
 ### 阿里云服务器端口开放
