@@ -1,5 +1,9 @@
 // pages/context/context.js
-var moment = require('../../utils/moment.js');
+// 引入 request
+const util = require('../../utils/util.js');
+const api = require('../../config/api.js');
+//日期格式化工具
+const moment = require('../../utils/moment.js')
 
 const app = getApp();
 Page({
@@ -9,15 +13,25 @@ Page({
    */
   data: {
     //单个页面数据格式为 json 
+
     echowall: {},
   },
 
   getData: function(){
     //取出缓存中的数据
-    var item = wx.getStorageSync('item');
+    var id = wx.getStorageSync('id');
     let that = this;
-    that.setData({
-      echowall: item,
+    var url = api.contextUrl + "id=" + id;
+    util.request(url).then(function (res) {
+      //遍历 json 来格式化时间数据
+      for (var index in res.data) {
+        var time = moment(res.data[index].time).format('YYYY-MM-DD HH:mm');
+        res.data[index].time = time;
+      }
+      //初始化数据
+      that.setData({
+        echowall: res.data[0],
+      });
     });
   },
   /**
@@ -25,6 +39,7 @@ Page({
    */
   onLoad: function (options) {
     this.getData();
+    console.log(this.data.echowall);
   },
 
   /**

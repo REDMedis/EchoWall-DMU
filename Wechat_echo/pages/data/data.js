@@ -19,7 +19,7 @@ Page({
   //数据写入缓存来进行页面间通信
   itemTap: function (event){
     var id = event.currentTarget.dataset.id;
-    wx.setStorageSync('item', id);
+    wx.setStorageSync('id', id);
     wx.navigateTo({
       url: '/pages/context/context',
     })
