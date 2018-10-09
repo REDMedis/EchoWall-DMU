@@ -13,8 +13,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    //默认请求回传值为 json 数组
-    echowall: [{}],
+    loading: false, //上划加载判定
+    refreshAnimation: {},
+    echowall: [{}], //默认请求回传值为 json 数组
   },
   //数据写入缓存来进行页面间通信
   itemTap: function (event){
@@ -24,6 +25,7 @@ Page({
       url: '/pages/context/context',
     })
   },
+
   //get并初始化数据
   getIndexData: function (){
     let that = this;
@@ -61,9 +63,7 @@ Page({
         echowall: data,
       });
     });
-
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
@@ -82,7 +82,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    
   },
 
   /**
@@ -111,15 +111,40 @@ Page({
 
   /**
    * 页面上拉触底事件的处理函数
+   * 2018-10-09 添加上划延迟
    */
   onReachBottom: function () {
-    this.addData();
+    if (this.data.loading) return;
+    this.setData({ loading: true });
+    this.updateRefreshIcon();
+    setTimeout(() =>{ //计时器
+      this.setData({ loading: false }); 
+      this.addData(); //载入新一批数据
+    }, 2000)
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
+  },
 
+  updateRefreshIcon: function() {
+    var deg = 0;
+    console.log('start anima')
+    var animation = wx.createAnimation({
+        duration: 2000,
+      timingFunction: 'ease-in-out',
+      });
+
+    var timer = setInterval(() => {
+      if (!this.data.loading)
+        clearInterval(timer);
+      animation.rotateY(deg).step();//在Z轴旋转一个deg角度
+      deg += 360;
+      this.setData({
+        refreshAnimation: animation.export()
+      })
+    }, 0);
   }
 })

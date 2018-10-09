@@ -1,6 +1,6 @@
 {
-  "navigationBarTitleText": "卢本伟牛逼",
-  "enablePullDownRefresh":  true ,
+  "navigationBarTitleText": "ECHO Wall",
+  "enablePullDownRefresh":  true,
   "backgroundTextStyle" : "light",
   "onReachBottomDistance": 50
 }

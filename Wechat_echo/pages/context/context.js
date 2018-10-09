@@ -13,7 +13,6 @@ Page({
    */
   data: {
     //单个页面数据格式为 json 
-
     echowall: {},
   },
 

@@ -1,11 +1,10 @@
 {
   "pages": [
-
     "pages/data/data",
     "pages/context/context"
   ],
   "window": {
-    "backgroundTextStyle": "light",
+    "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"
