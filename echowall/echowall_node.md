@@ -102,3 +102,15 @@ routes 中的 index.js 为路由分发控制总入口，在其中暴露的方法
 	module.exports = router;
 
 即可通过访问 localhost:3000/xxx 获取数据
+
+## 守护 node 进程
+
+为了让 node 服务可以在服务器后台运行，避免每次启动都使用 npm start，且当关掉远程连接工具后，服务也停了。
+我们可以使用 pm2 来守护 node 进程，在服务器后台启动 node web 服务。
+
+	pm2 start /home/XXX/EchoWall-DMU/echowall/bin/www --name echowall
+
+需要注意的是，需要启动的不是后台的 app.js，而是 /bin/www 这个 web 入口项目文件。
+
+- [pm2: Node.js Production Process Manager with a built-in Load Balancer.](https://github.com/Unitech/pm2)
+- [PM2  使用介绍](https://segmentfault.com/a/1190000002539204)
