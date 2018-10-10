@@ -106,7 +106,7 @@ routes 中的 index.js 为路由分发控制总入口，在其中暴露的方法
 ## 守护 node 进程
 
 为了让 node 服务可以在服务器后台运行，避免每次启动都使用 npm start，且当关掉远程连接工具后，服务也停了。
-我们可以使用 pm2 来 node 进程，在服务器后台启动 node web 服务。
+我们可以使用 pm2 来守护 node 进程，在服务器后台启动 node web 服务。
 
 	pm2 start /home/XXX/EchoWall-DMU/echowall/bin/www --name echowall
 
