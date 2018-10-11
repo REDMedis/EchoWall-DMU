@@ -16,18 +16,18 @@
 	
 	npm start
 
-启动前需要修改 /controller/function/dbconnection.js 的数据库连接信息
+启动前需要修改 /controller/function/dbPoolConnect.js 的数据库连接信息
 
-	exports.connection = function() {
-		var result;
-		var connection = mysql.createConnection({
+	// Use mysql pool
+	function connection() {
+		var pool = mysql.createPool({
 		  	host     : '',
 		  	user     : '',
 		  	password : '',
-		  	database : ''
+		  	database : '',
+		  	port 	 : '3306'		
 		});
-		connection.connect();
-		return connection;
+		return pool;
 	}
 
 ## 目录说明
