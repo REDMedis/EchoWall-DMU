@@ -30,6 +30,12 @@
 		return pool;
 	}
 
+> 推荐使用连接池，避免 connection 长时间没有操作而自动关闭
+
+- [GitHub - mysqljs/mysql: A pure node.js JavaScript Client implementing the MySql protocol.](https://github.com/mysqljs/mysql)
+- [nodejs + redis/mysql 连接池问题](https://blog.csdn.net/u012896140/article/details/51352202)
+
+
 ## 目录说明
 
 	echowall/
