@@ -4,7 +4,8 @@
 */
 var express = require('express');
 var router = express.Router();
-var database = require('./function/dbconnection');
+//var database = require('./function/dbconnection');
+var database = require('./function/dbPoolConnect');
 var per_page_count = 10;
 var page;
 var start;
