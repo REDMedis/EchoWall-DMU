@@ -1,49 +1,49 @@
 /* pages/data/data.wxss */
 .data_list{
-    background-color: #f4f4f4;
-    font-family: PingFangSC-Light,helvetica,'Heiti SC';
-    margin-top: 30rpx;
+  background-color: #F4F4F4;
+  font-family: PingFangSC-Light,helvetica,'Heiti SC';
+  padding-top: 15rpx;
+}
+
+.top{
+  margin-bottom: 15rpx;
+}
+
+.update_time{
+  font-size: 30rpx;
+  text-align: center;
+  color: #999;
 }
 
 .item {
-    background-color: #fff;
-    width: 100%;
-    display: block;
-    box-sizing: border-box;
-}
-
-.fuck{
-    width: 750rpx;
-    overflow: hidden;
-    background: #fff;
-    color: #333;
-    margin-top: 20rpx;
-}
-
-.item {
- border-top: 1px solid #d9d9d9;
- height: 144rpx;
- width: 750rpx;
+  min-height: 165rpx;
+  width: 700rpx;
+  border-top: 1px;
+  margin-bottom: 15rpx;
+	border-radius: 15px;
+  margin-left: auto; margin-right: auto;
+  background-color: #fff;
+  display: block;
+  box-sizing: border-box;
 }
 
 .title {
-  margin-top: 10rpx;
-  margin-left: 20rpx;
+  margin: 20rpx 30rpx 0rpx;
+  font-size: 40rpx;
   display: block;
 }
 
-.context {
-  margin-top: 10rpx;
-  margin-left: 20rpx;
-  font-size: 26rpx;
-  color: #999999;
+.box {
+  margin: 10rpx 100rpx 0rpx 30rpx;
+  font-size: 28rpx;
+  color: #999
 }
 
 .time {
-  margin-left: 550rpx;
-  margin-bottom: 0rpx;
-  font-size: 18rpx;
-  color: #999999;
+  text-align: right;
+  margin-right: 20px;
+  margin-bottom: 5px;
+  font-size: 30rpx;
 }
 
 

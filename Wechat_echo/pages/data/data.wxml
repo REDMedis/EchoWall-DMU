@@ -1,19 +1,23 @@
 <!--pages/data/data.wxml-->
 <view class="container">
-    <view class="data_list">
-        <view wx:for="{{echowall}}" wx:key="{{item.id}}" class="item ripple" bindtap='itemTap' data-id="{{item.id}}">
-            <view class="title">
-                {{item.title}}
-            </view>
-            <view class="context">
-                {{item.box}}
-            </view>
-            <view class="time">
-                {{item.time}}
-            </view>
-        </view>
+  <view class="data_list">
+    <view class="top">
+      <view class="update_time"> 最后更新于：{{ last_update }} </view>
+    </view>
+    <view wx:for="{{echowall}}" wx:key="{{item.id}}" class="item ripple" bindtap='itemTap' data-id="{{item.id}}">
+      <view class="title">
+          {{ item.title }}
+      </view>
+      <view class="box">
+          {{ item.box }}
+      </view>
+      <view class="time">
+          {{ item.time }}
+      </view>
     </view>
     <view class="loading_row" wx:if="{{loading}}">
-        <image class="loading_icon" mode='scaleToFill' animation="{{refreshAnimation}}" src="../../resources/loading.png">loading icon</image> 
+      <image class="loading_icon" mode='scaleToFill' animation="{{refreshAnimation}}" src="../../resources/loading.png">loading icon
+      </image> 
     </view>
+  </view>
 </view>

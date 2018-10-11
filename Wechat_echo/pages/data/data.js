@@ -8,7 +8,6 @@ const app = getApp();
 var page = 1;
 
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -16,6 +15,7 @@ Page({
     loading: false, //上划加载判定
     refreshAnimation: {},
     echowall: [{}], //默认请求回传值为 json 数组
+    last_update: util.formatTime(new Date)
   },
   //数据写入缓存来进行页面间通信
   itemTap: function (event){
@@ -39,6 +39,7 @@ Page({
       //初始化数据
       that.setData({
         echowall: res.data,
+        last_update: res.data[0].time
       });
     });
   },
@@ -60,7 +61,7 @@ Page({
       }
       //数据传递
       that.setData({
-        echowall: data,
+        echowall: data
       });
     });
   },
@@ -130,18 +131,18 @@ Page({
   },
 
   updateRefreshIcon: function() {
-    var deg = 0;
+    var deg = 180;
     console.log('start anima')
     var animation = wx.createAnimation({
-        duration: 2000,
-      timingFunction: 'ease-in-out',
+        duration: 10000,
+        timingFunction: 'ease-in-out',
       });
 
     var timer = setInterval(() => {
       if (!this.data.loading)
         clearInterval(timer);
       animation.rotateY(deg).step();//在Z轴旋转一个deg角度
-      deg += 360;
+      deg = deg + 180;
       this.setData({
         refreshAnimation: animation.export()
       })

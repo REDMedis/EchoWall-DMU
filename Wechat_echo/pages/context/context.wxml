@@ -1,8 +1,19 @@
 <!--pages/context/context.wxml-->
-<view >
-  {{echowall.title}}
-  {{echowall.box}}
-  {{echowall.problem}}
-  {{echowall.reply}}
-  {{echowall.time}}
+
+<view>
+  <view class="title_block">
+    <view class="title_context">{{echowall.title}}</view>
+    <view class="box_context">来自：{{echowall.box}} 信箱</view>
+  </view>
+  <view class="detail_block">
+    <view class="problem">
+      <view class="problrm_context">
+        {{echowall.problem}}
+      </view>
+    </view>
+    <view class="reply_block">
+      <view class="reply_context">{{echowall.reply}}</view>
+      <view class="time_context">{{echowall.time}}</view>
+    </view>
+  </view>
 </view>
