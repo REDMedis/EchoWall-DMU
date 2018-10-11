@@ -1,25 +1,37 @@
 /**
- * 数据库连接模块 db.js
- * @authors Carmelo Lcanboom
+ * 数据库连接模块
+ * @authors Carmelo
  */
 
 var express = require('express');
 var router = express.Router();
 var mysql = require('mysql');
 
-exports.connection = function() {
-	var result;
-	var connection = mysql.createConnection({
-	  	host     : 'localhost',
-	  	user     : 'username',
-	  	password : 'password',
-	  	database : 'echo'
-	});
-	connection.connect();
-	return connection;
+function handleError(err) {
+    if (err) {
+        // 连接断开，自动重新连接
+        console.log('err code:' + err.code);
+        if (err.code === 'ETIMEDOUT' || err.code === 'PROTOCOL_CONNECTION_LOST' || err.code === 'PROTOCOL_ENQUEUE_AFTER_FATAL_ERROR') {
+            connection();
+        } else {
+            console.error(err.stack || err);
+        }
+    }
 }
 
-exports.query = function(connection, values, sql, res) {
+function connection() {
+	connection = mysql.createConnection({
+	  	host     : 'localhost',
+	  	user     : 'root',
+	  	password : '521Loli',
+	  	database : 'echo'
+	});
+	connection.connect(handleError);
+   	connection.on('error', handleError);
+   	return connection	
+}
+
+function query(connection, values, sql, res) {
 	connection.query(sql, values, function (err, data) {
 	    var result;
 	    if(err){
@@ -27,6 +39,7 @@ exports.query = function(connection, values, sql, res) {
 	    		'status': "500",
 	    		'message':"query error"
 	    	}
+	    	console.log(err);
 	    }
 	    else{
 	    	result = {
@@ -34,9 +47,10 @@ exports.query = function(connection, values, sql, res) {
 	    		'message':"query success",
 	    		data: data
 	    	}
-		return res.jsonp(result);
+			return res.jsonp(result);
 	    } 
 	});
 }
 
-
+exports.connection = connection;
+exports.query = query;
