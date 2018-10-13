@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "ECHO Wall",
+  "navigationBarTitleText": "ECHO",
   "enablePullDownRefresh":  true,
   "backgroundTextStyle" : "dark",
   "onReachBottomDistance": 50

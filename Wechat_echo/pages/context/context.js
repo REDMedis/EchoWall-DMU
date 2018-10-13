@@ -30,6 +30,8 @@ Page({
       //初始化数据
       that.setData({
         echowall: res.data[0],
+      }, () => {
+        that.resetTitleBackHeight();
       });
     });
   },
@@ -45,14 +47,14 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    //this.resetTitleBackHeight();
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    
   },
 
   /**
@@ -88,5 +90,14 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  resetTitleBackHeight: function () {
+    var query = wx.createSelectorQuery();
+    var that = this;
+    if (that.data.echowall.title.length > 10)
+      that.setData({
+        back_height: 300 + 'rpx'
+      })
   }
 })

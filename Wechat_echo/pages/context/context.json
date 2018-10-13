@@ -1,3 +1,5 @@
 {
-  
+  "navigationBarTitleText": "Detail",
+  "backgroundTextStyle": "dark",
+  "onReachBottomDistance": 50
 }

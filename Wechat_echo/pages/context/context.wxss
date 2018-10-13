@@ -1,48 +1,98 @@
 /* pages/context/context.wxss */
-.title_block{
+.title_back{
   position: relative;
-  min-width: 750rpx;
-  min-height: 200rpx;
-  background: #5263EF;
+  z-index: 70;
+  height: 280rpx;
+  width: 750rpx;
+  margin-bottom: 120rpx;
+  background: linear-gradient(to bottom right, #959FF5, #5263EF);
 }
 
-.detail_block{
-  background: #F4F4F4;
+.title_card{
+  position: absolute;
+  z-index: 90;
+  width: 700rpx;
+  min-height: 200rpx;
+  margin: 60rpx 25rpx 20rpx;
+  background: #5263EF;
+  box-shadow: 10px 10px 30px rgba(95, 100, 148, 0.39);
 }
 
 .title_context{
   font-size: 60rpx;
   font-weight: 900;
-  padding: 35rpx 50rpx 5rpx 50rpx;
+  width:750rpx;
+  padding: 55rpx 50rpx 5rpx 50rpx;
   color: #FFF;
 }
 
 .box_context{
-  padding: 5rpx 50rpx 40rpx;
+  padding: 5rpx 50rpx 60rpx;
   font-size: 28rpx;
   color: #FFF;
 }
-.problem_block{
-  min-width: 750rpx;
-  min-height: 100rpx;
+
+.problrm_block{
+  width: 700rpx;
+  min-height: 150rpx;
+  margin: 0rpx 25rpx 25rpx;
+  padding: 50rpx 20rpx;
+  display: flex;
+  align-items: center;
+  border-style: solid; 
+  border-width: 3px; 
+  border-color: #5263EF;
+  box-shadow: 2px 2px 10px rgba(95, 100, 148, 0.39);
 }
 
-.problrm_context{
+.problem_context{
+  font-weight: 200;
   font-size: 36rpx;
-  padding: 50rpx 50rpx 50rpx;
+  margin-left: 50rpx;
 }
 
 .reply_block{
-  in-width: 750rpx;
-  min-height: 100rpx;
+  width: 700rpx;
+  min-height: 150rpx;
+  margin: 0rpx 25rpx 25rpx;
+  padding: 50rpx 20rpx;
+  display: flex;
+  align-items: center;
+  border-style: solid; 
+  border-width: 3px; 
+  border-color: #FF6254;
+  box-shadow: 2px 2px 10px rgba(148, 107, 95, 0.39);
+}
+
+.reply_part{
+
 }
 
 .reply_context{
+  font-weight: 200;
   font-size: 36rpx;
-  padding: 10rpx 50rpx 0rpx;
+  margin-left: 50rpx;
 }
 
 .time_context{
-  font-size: 36rpx;
-  padding: 30rpx 50rpx;
+  font-size: 24rpx;
+  margin-left: 50rpx;
+  color: #FFF;
+  text-align: right;
+}
+
+.Sound{
+  font-size: 80rpx;
+  font-weight: 500;
+  margin-left: 25rpx;
+  width: 80rpx;
+  color: #5263EF;
+}
+
+.Echo{
+  font-size: 80rpx;
+  font-weight: 500;
+  margin-left: 25rpx;
+  width: 80rpx;
+  color: #FF6254;
 }

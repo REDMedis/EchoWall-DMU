@@ -28,6 +28,7 @@ Page({
 
   //get并初始化数据
   getIndexData: function (){
+    page = 1;
     let that = this;
     var url = api.listUrl + "?page=" + page;
     util.request(url).then(function (res){
@@ -131,10 +132,10 @@ Page({
   },
 
   updateRefreshIcon: function() {
-    var deg = 180;
+    var deg = 360;
     console.log('start anima')
     var animation = wx.createAnimation({
-        duration: 10000,
+        duration: 3000,
         timingFunction: 'ease-in-out',
       });
 
@@ -142,7 +143,7 @@ Page({
       if (!this.data.loading)
         clearInterval(timer);
       animation.rotateY(deg).step();//在Z轴旋转一个deg角度
-      deg = deg + 180;
+      deg = deg + 360;
       this.setData({
         refreshAnimation: animation.export()
       })
