@@ -5,7 +5,7 @@
 ### 环境要求
 
 * 国内云服务器
-* Apache / Nagix
+* Apache / Nginx
 * MySQL 8.0.x
 * Node 10.x
 * npm 6.x
