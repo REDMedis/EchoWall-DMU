@@ -15,7 +15,8 @@ Page({
     loading: false, //上划加载判定
     refreshAnimation: {},
     echowall: [{}], //默认请求回传值为 json 数组
-    last_update: util.formatTime(new Date)
+    last_update: util.formatTime(new Date),
+    search_status: 0 //搜索栏的状态（0: unfocus, 1: focus）
   },
   //数据写入缓存来进行页面间通信
   itemTap: function (event){
@@ -116,13 +117,13 @@ Page({
    * 2018-10-09 添加上划延迟
    */
   onReachBottom: function () {
-    if (this.data.loading) return;
-    this.setData({ loading: true });
-    this.updateRefreshIcon();
-    setTimeout(() =>{ //计时器
-      this.setData({ loading: false }); 
-      this.addData(); //载入新一批数据
-    }, 2000)
+    // if (this.data.loading) return;
+    // this.setData({ loading: true });
+    // this.updateRefreshIcon();
+    // setTimeout(() =>{ //计时器
+    this.addData(); //载入新一批数据
+    //   this.setData({ loading: false });
+    // }, 3000)
   },
 
   /**
@@ -135,10 +136,9 @@ Page({
     var deg = 360;
     console.log('start anima')
     var animation = wx.createAnimation({
-        duration: 3000,
+        duration: 4000,
         timingFunction: 'ease-in-out',
       });
-
     var timer = setInterval(() => {
       if (!this.data.loading)
         clearInterval(timer);
@@ -148,5 +148,18 @@ Page({
         refreshAnimation: animation.export()
       })
     }, 0);
-  }
+  },
+
+  focus: function(e){
+    this.setData({
+      search_status: 1
+    })
+  },
+
+  unfocus: function(e){
+    this.setData({
+      search_status: 0
+    })
+  },
+
 })

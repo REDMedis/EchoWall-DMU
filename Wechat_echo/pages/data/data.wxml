@@ -1,10 +1,17 @@
 <!--pages/data/data.wxml-->
 <view class="container">
+  <view class="page_section">
+    <view class="cells">
+      <view class="cells_input">
+        <input class="input" placeholder-class="{{search_status==0 ? 'placeholder=':'placeholder_focus'}}" placeholder="Search via key word" bindfocus='focus'  bindblur='unfocus'></input>
+      </view>
+    </view>
+  </view>
   <view class="data_list">
     <view class="top">
       <view class="update_time"> 最后更新于：{{ last_update }} </view>
     </view>
-    <view wx:for="{{echowall}}" wx:key="{{item.id}}" class="item ripple" bindtap='itemTap' data-id="{{item.id}}">
+    <view wx:for="{{ echowall }}" wx:key="{{ item.id }}" class="item ripple" bindtap='itemTap' data-id="{{ item.id }}">
       <view class="title">
           {{ item.title }}
       </view>
@@ -15,9 +22,9 @@
           {{ item.time }}
       </view>
     </view>
-    <view class="loading_row" wx:if="{{loading}}">
+    <!-- <view class="loading_row" wx:if="{{loading}}">
       <image class="loading_icon" mode='scaleToFill' animation="{{refreshAnimation}}" src="../../resources/loading.png">loading icon
       </image> 
-    </view>
+    </view> -->
   </view>
 </view>

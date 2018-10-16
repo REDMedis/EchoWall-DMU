@@ -49,6 +49,8 @@
   font-weight: 200;
   font-size: 36rpx;
   margin-left: 50rpx;
+  word-wrap: break-word;
+  word-break: break-all;
 }
 
 .reply_block{
@@ -72,6 +74,8 @@
   font-weight: 200;
   font-size: 36rpx;
   margin-left: 50rpx;
+  word-wrap: break-word;
+  word-break: break-all;
 }
 
 .time_context{

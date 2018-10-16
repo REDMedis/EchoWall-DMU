@@ -1,4 +1,23 @@
 /* pages/data/data.wxss */
+
+.page_section{
+  position: relative;
+  height: 100rpx;
+  margin-bottom: 20rpx;
+  background: linear-gradient(to bottom, #5263EF, #959FF5);
+}
+
+.input{
+  position: absolute;
+  width: 500rpx;
+  height: 54rpx;
+  margin: 30rpx 125rpx 10rpx;
+  border-radius: 12rpx;
+  font-size: 32rpx;
+  color:#000;
+  background: #fff;
+}
+
 .data_list{
   background-color: #F4F4F4;
   font-family: PingFangSC-Light,helvetica,'Heiti SC';
@@ -48,13 +67,13 @@
 }
 
 
-.ripple:active:after {
+.ripple :active:after {
   transform: scale(0, 0);
   opacity: .3;
   transition: 0s;
 }
 
-.ripple:after {
+.ripple :after {
   content: "";
   display: block;
   position: absolute;
