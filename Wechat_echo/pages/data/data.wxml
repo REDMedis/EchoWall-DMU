@@ -1,10 +1,18 @@
 <!--pages/data/data.wxml-->
 <view class="container">
   <view class="page_section">
-    <view class="cells">
+    <!-- <view class="cells">
       <view class="cells_input">
         <input class="input" placeholder-class="{{search_status==0 ? 'placeholder=':'placeholder_focus'}}" placeholder="Search via key word" bindfocus='focus'  bindblur='unfocus'></input>
       </view>
+    </view> -->
+
+    <view>
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+        <view>
+          当前信箱：{{array[index]}}
+        </view>
+      </picker>
     </view>
   </view>
   <view class="data_list">
