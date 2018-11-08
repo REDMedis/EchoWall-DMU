@@ -4,8 +4,7 @@
 */
 var express = require('express');
 var router = express.Router();
-//var database = require('./function/dbconnection');
-var database = require('./function/dbPoolConnect');
+var database = require('./function/dbconnection');
 var per_page_count = 10;
 var page;
 var start;
@@ -26,8 +25,17 @@ router.get('/bybox', function(req, res) {
 	var box_name = req.query.box;
 	page = req.query.page;
 	start = (page - 1) * per_page_count;
-	sql = "SELECT id, title, box, date_format(time, '%Y-%m-%d %H:%i:%s') time FROM echowall WHERE box = ? ORDER BY time DESC limit " + start + ', ' + per_page_count;
-	database.query(connection, box_name, sql, res);
+	if (box_name === "其他"){
+		sql = "SELECT id, title, box, date_format(time, '%Y-%m-%d %H:%i:%s') time \
+		FROM echowall WHERE box not in ('校领导信箱', '后勤保障处信箱', '教务处信箱', '网络信息与综合服务中心信箱', '学生处信箱', '创新创业学院信箱', '财务处信箱', '人事处信箱', '图书馆信箱', '学生就业指导中心', '保卫处信箱', '信息处信箱', '后勤集团', '研究生信箱') \
+		ORDER BY time DESC limit " 
+		+ start + ', ' + per_page_count;
+		database.query(connection, null, sql, res);
+	}else{
+		sql = "SELECT id, title, box, date_format(time, '%Y-%m-%d %H:%i:%s') time FROM echowall WHERE box = ? ORDER BY time DESC limit " + start + ', ' + per_page_count;
+		database.query(connection, box_name, sql, res);
+	}
+	
 });
 
 // 根据时间段（start_time，end_time）获取回音壁信息
