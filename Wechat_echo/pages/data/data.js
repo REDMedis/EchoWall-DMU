@@ -21,7 +21,14 @@ Page({
     echowall: [], //默认请求回传值为 json 数组
     last_update: util.formatTime(new Date),
     search_status: 0 ,//搜索栏的状态（0: unfocus, 1: focus）
-    // picker array
+    tabTxt: ['按时间', '按热度', '按信箱'],
+    tab: [true, true, true],
+    timeList: [{ 'id': '1', 'title': '所有' }, { 'id': '2', 'title': '近三天' }, { 'id': '3', 'title': '近一周' }],
+    time_id: 0,
+    time_txt: '',
+    popular_id: 0,
+    popular_txt: '',
+    mailbox_id: 0,
     array: ['所有信箱', '校领导信箱', '后勤保障处信箱', '教务处信箱', '网络信息与综合服务中心信箱', '学生处信箱', '创新创业学院信箱', '财务处信箱', '人事处信箱', '图书馆信箱', '学生就业指导中心', '保卫处信箱', '信息处信箱', '后勤集团', '研究生信箱', '其他'],
     // picker json
     objectArray: [
@@ -260,5 +267,49 @@ Page({
       search_status: 0
     })
   },
+
+  filterTab: function(e){
+    var data = [true, true, true], index = e.currentTarget.dataset.index;
+    data[index] = !this.data.tab[index];
+    this.setData({
+      tab:data
+    })
+  },
+
+  filter: function(e){
+    var self = this, id = e.currentTarget.dataset.id, txt = e.currentTarget.dataset.txt, tabTxt = this.data.tabTxt;
+    switch (e.currentTarget.dataset.index) {
+      case '0':
+        tabTxt[0] = txt;
+        self.setData({
+          tab: [true, true, true],
+          tabTxt: tabTxt,
+          time_id: id,
+          time_txt: txt
+        });
+        break;
+      case '1':
+        tabTxt[1] = txt;
+        self.setData({
+          tab: [true, true, true],
+          tabTxt: tabTxt,
+          popular_id: id,
+          popular_txt: txt
+        });
+        break;
+      case '2':
+        tabTxt[2] = txt;
+        self.setData({
+          tab: [true, true, true],
+          tabTxt: tabTxt,
+          mailbox_id: id,
+          mailbox_txt: txt
+        });
+        break;
+    }
+    //数据筛选
+    //self.getDataList();
+  }
+
 
 })

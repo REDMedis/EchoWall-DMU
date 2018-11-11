@@ -2,7 +2,7 @@
 
 .page_section{
   position: relative;
-  height: 100rpx;
+  height: 150rpx;
   margin-bottom: 20rpx;
   background: linear-gradient(to bottom, #5263EF, #959FF5);
 }
@@ -12,16 +12,15 @@
   width: 500rpx;
   height: 54rpx;
   margin: 30rpx 125rpx 10rpx;
-  border-radius: 12rpx;
   font-size: 32rpx;
   color:#000;
   background: #fff;
 }
 
 .data_list{
-  background-color: #F4F4F4;
+  background-color: #F5F5F5;
   font-family: PingFangSC-Light,helvetica,'Heiti SC';
-  padding-top: 15rpx;
+  padding-top: 14rpx;
 }
 
 .top{
@@ -52,7 +51,7 @@
   display: block;
 }
 
-.box {
+.mailbox {
   margin: 10rpx 100rpx 0rpx 30rpx;
   font-size: 28rpx;
   color: #999
@@ -118,6 +117,93 @@
 } */
 
 
+.flex1 {
+    flex: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.tabTit{
+  background-color: #f5f5f5;
+  height:90rpx;
+  line-height: 90rpx;
+  border-bottom: solid 1px #eee;
+  position: fixed;
+  top:0;
+  width: 680rpx;
+  margin-left: 35rpx;
+  margin-top: 30rpx;
+  z-index: 1;
+  font-size:15px;
+  box-shadow: 3px 3px 15px rgba(95, 100, 148, 0.39);
+}
+
+.tabTit text{
+  font-size: 30rpx;
+  position: absolute;
+  width:200rpx;
+  height:60rpx;
+  line-height:60rpx;
+  float:left;
+  padding-left:40rpx;
+}
+ 
+.tabTit .active{
+  color:#5263EF;
+  background: #fff;
+}
+ 
+.tabTit image{
+  position: absolute;
+  width:30rpx;
+  height:30rpx;
+  margin-left:50rpx;
+
+}
+
+.tabTit .active image{
+  transform: rotate(180deg);
+  background: none;
+}
+
+.box {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.tabLayer{
+  background-color: #fff;
+  box-shadow: 0 5px 5px rgba(0,0,0,.15);
+  width:750rpx;
+  overflow: hidden;
+  position: fixed;
+  top:90rpx;
+  z-index: 1;
+  padding-bottom: 40rpx;
+  border-bottom: solid 1px #eee;
+  text-align: center;
+}
+.tabLayer text{
+  width:210rpx;
+  height:60rpx;
+  line-height:60rpx;
+  float:left;
+  border: solid 1px #eee;
+  margin:20rpx 0 0 26rpx;
+  font-size:15px;
+}
+
+.tabLayer .active{
+  color:#5263EF;
+  border-color:#5263EF;
+}
 
 
 

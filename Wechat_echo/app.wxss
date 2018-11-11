@@ -1,6 +1,6 @@
 /**app.wxss**/
 .container {
-    background-color: #f4f4f4;
+    background-color: #f5f5f5;
     font-family: PingFang SC,Helvetica;
     overflow: hidden;
 } 
