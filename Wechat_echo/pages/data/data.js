@@ -21,8 +21,8 @@ Page({
     echowall: [], //默认请求回传值为 json 数组
     last_update: util.formatTime(new Date),
     search_status: 0 ,//搜索栏的状态（0: unfocus, 1: focus）
-    tabTxt: ['按时间', '按热度', '按信箱'],
-    tab: [true, true, true],
+    tabTxt: ['按时间', '按热度'],
+    tab: [true, true],
     timeList: [{ 'id': '1', 'title': '所有' }, { 'id': '2', 'title': '近三天' }, { 'id': '3', 'title': '近一周' }],
     time_id: 0,
     time_txt: '',

@@ -133,7 +133,7 @@
   height:90rpx;
   line-height: 90rpx;
   border-bottom: solid 1px #eee;
-  position: fixed;
+  position: absolute;
   top:0;
   width: 680rpx;
   margin-left: 35rpx;
@@ -163,7 +163,6 @@
   width:30rpx;
   height:30rpx;
   margin-left:50rpx;
-
 }
 
 .tabTit .active image{
@@ -180,18 +179,19 @@
 
 .tabLayer{
   background-color: #fff;
-  box-shadow: 0 5px 5px rgba(0,0,0,.15);
-  width:750rpx;
+  box-shadow: 5px 5px 5px rgba(0,0,0,.15);
+  width: 680rpx;
+  margin: 35rpx;
   overflow: hidden;
-  position: fixed;
-  top:90rpx;
-  z-index: 1;
+  position: absolute;
+  top: 87rpx;
   padding-bottom: 40rpx;
-  border-bottom: solid 1px #eee;
+  z-index: 1;
   text-align: center;
 }
+
 .tabLayer text{
-  width:210rpx;
+  width:180rpx;
   height:60rpx;
   line-height:60rpx;
   float:left;

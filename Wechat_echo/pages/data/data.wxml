@@ -13,6 +13,12 @@
         <text>{{item}}</text>
         <image src="/resources/arrow.png"></image>
       </view>
+      <view class="flex1">
+        <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+          <view>{{array[index]}}
+          </view>
+        </picker>
+      </view>
     </view>
 
     <view class="tabLayer" hidden="{{tab[0]}}">
@@ -25,17 +31,6 @@
       <text class="{{popular_id == 1 ? 'active' : ''}}" data-id="1" data-index="1" data-txt="最多点赞" bindtap="filter">最多点赞</text>
       <text class="{{popular_id == 2 ? 'active' : ''}}" data-id="2" data-index="1" data-txt="最多评论" bindtap="filter">最多评论</text>
       <text class="{{popular_id == 3 ? 'active' : ''}}" data-id="3" data-index="1" data-txt="最有争议" bindtap="filter">最有争议</text>
-    </view>
-
-    <view class="tabLayer" hidden="{{tab[2]}}">
-        <picker class="{mailbox_id==0?'active':''}}" data-id="0" data-index="2" data-txt="按信箱" bindtap="filter" bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-          <view>
-            按信箱
-          </view>
-        </picker>
-      <!-- <text class="{mailbox_id==0?'active':''}}" data-id="0" data-index="2" data-txt="按信箱" bindtap="filter">不限</text>
-      <text class="{{mailbox_id==1?'active':''}}" data-id="1" data-index="2" data-txt="从高到低" bindtap="filter">从高到低</text>
-      <text class="{{mailbox_id==2?'active':''}}" data-id="2" data-index="2" data-txt="从低到高" bindtap="filter">从低到高</text> -->
     </view>
   </view>
   
