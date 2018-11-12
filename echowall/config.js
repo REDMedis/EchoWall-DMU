@@ -1,16 +1,16 @@
-var appId = 'wx4960b854a7a61e91';
-var appSecret = '8b21421af25755cb5cc9197680f37a59';
+var appId = 'YourappId';
+var appSecret = 'YourappSecret';
 var	host = 'localhost';
 
 // mysql 配置
 var mysql_user = 'root';
-var mysql_password = '521Loli';
-var mysql_database = 'echo'; 
+var mysql_password = 'mysqlPassword';
+var mysql_database = 'mysqlDatabase'; 
 var mysql_port = 3306;
 
 // redis 配置
 var redis_port = 6379;
-var redis_auth = {auth_pass: 'echowall'};
+var redis_auth = {auth_pass: 'redisPassword'};
 
 module.exports = {
   appId: appId,
