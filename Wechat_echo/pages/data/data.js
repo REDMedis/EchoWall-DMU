@@ -30,6 +30,7 @@ Page({
     popular_txt: '',
     mailbox_id: 0,
     array: ['所有信箱', '校领导信箱', '后勤保障处信箱', '教务处信箱', '网络信息与综合服务中心信箱', '学生处信箱', '创新创业学院信箱', '财务处信箱', '人事处信箱', '图书馆信箱', '学生就业指导中心', '保卫处信箱', '信息处信箱', '后勤集团', '研究生信箱', '其他'],
+    boxshow: ['所有信箱', '校领导信箱', '后勤保障信箱', '教务处信箱', '网络信息信箱', '学生处信箱', '创新创业信箱', '财务处信箱', '人事处信箱', '图书馆信箱', '就业指导中心', '保卫处信箱', '信息处信箱', '后勤集团', '研究生信箱', '其他'],
     // picker json
     objectArray: [
       {
@@ -100,6 +101,7 @@ Page({
     // picked index
     index: 0,
   },
+
   // picker 触发的监听事件
   bindPickerChange: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value);
@@ -108,6 +110,7 @@ Page({
     });
     this.resetData();
   },
+
   //数据写入缓存来进行页面间通信
   itemTap: function (event){
     var id = event.currentTarget.dataset.id;

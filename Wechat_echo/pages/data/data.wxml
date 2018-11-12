@@ -15,8 +15,7 @@
       </view>
       <view class="flex1">
         <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-          <view>{{array[index]}}
-          </view>
+          <view>{{boxshow[index]}}</view>
         </picker>
       </view>
     </view>
