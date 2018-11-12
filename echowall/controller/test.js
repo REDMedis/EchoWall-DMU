@@ -11,7 +11,17 @@ var database = require('./function/dbconnection');
 router.get('/', function(req, res) {
 	var connection = database.connection();
 	var  sql = 'SELECT * FROM echowall';
-	database.query(connection, null ,sql, res);
+	database.query(connection, null, sql).then((data) => {
+		if (data)
+			res.jsonp(data);
+		else
+			res.jsonp({
+		    	'status': "500",
+		    	'message':"query error",
+			})
+	}, (err) => {
+			res.jsonp(err);	
+	});
 });
 
 module.exports = router;
