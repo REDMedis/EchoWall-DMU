@@ -2,6 +2,9 @@
 // 2018/11/08
 // 去除了一个代码重复度过高的方法，现在所有的数据都是拼接而成，初始化时清空之后从头开始拼接
 // ------------------------------------------------------------------------------------
+// edit by keith
+// 2018/11/13
+// 修改了请求的参数传递方式，并增加了 post 请求方式
 // pages/data/data.js
 // 引入 request
 const util = require('../../utils/util.js');
@@ -128,41 +131,42 @@ Page({
     this.addData();
   },
 
-  // //get并初始化数据
-  // getIndexData: function (){
-  //   page = 1;
-  //   let that = this;
-  //   var url = api.listUrl + "?page=" + page;
-  //   util.request(url).then(function (res){
-  //     //遍历 json 来格式化时间数据
-  //     for (var index in res.data){
-  //       var time = moment(res.data[index].time).format('YYYY-MM-DD HH:mm');
-  //       res.data[index].time = time;
-  //     }
-  //     //初始化数据
-  //     that.setData({
-  //       echowall: res.data,
-  //       last_update: res.data[0].time
-  //     });
-  //   });
-  // },
-
   //数据更新
   addData: function(){
     page ++;
     let that = this;
     var url;
     console.log(that.data.index)
+    // 全部信箱
     if (that.data.index == 0) {
-      url = api.listUrl + "?page=" + page;
+      url = api.listUrl;
+      // 参数封装
+      var getdata = {
+        page: page
+      };
+      // 请求数据 get 
+      that.requestData(url, getdata);
     }else{
+      // 通过信箱请求
       var box = that.data.array[that.data.index]
-      url = api.listBoxUrl + "box=" + box + "&page=" + page;
+      url = api.listBoxUrl;
+      // 处理并封装数据
+      var array = that.data.array.slice(0, -1);
+      var post_data = {
+        types: array,
+        box: box,
+        page: page
+      };
+      // 请求数据 post
+      that.requestData(url, post_data, "POST");
     }
-    console.log(url)
+  },
+  // 发送请求，默认方法为 GET 
+  requestData: function (url, get_data, method){
+    let that = this;
     //获取当前数据值
     var data = that.data.echowall;
-    util.request(url).then(function (res) {
+    util.request(url, get_data, method).then(function (res) {
       //遍历 json 来格式化时间数据，并且完成数据拼接
       for (var index in res.data) {
         var time = moment(res.data[index].time).format('YYYY-MM-DD HH:mm');
@@ -176,6 +180,7 @@ Page({
       });
     });
   },
+
   /**
    * 生命周期函数--监听页面加载
    */

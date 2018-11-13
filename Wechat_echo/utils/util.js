@@ -29,7 +29,7 @@ function request(url, data = {}, method = "GET"){
         'Content-Type': 'application/json',
         'X-Litemall-Token': wx.getStorageSync('token')
       },
-      method: 'GET',
+      method: method,
       dataType: 'json',
       responseType: 'text',
       success: function (res) {

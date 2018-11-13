@@ -20,8 +20,12 @@ Page({
     //取出缓存中的数据
     var id = wx.getStorageSync('id');
     let that = this;
-    var url = api.contextUrl + "id=" + id;
-    util.request(url).then(function (res) {
+    var url = api.contextUrl;
+    var get_data = {
+      id: id
+    };
+    // request data by GET
+    util.request(url, get_data).then(function (res) {
       //遍历 json 来格式化时间数据
       for (var index in res.data) {
         var time = moment(res.data[index].time).format('YYYY-MM-DD HH:mm');

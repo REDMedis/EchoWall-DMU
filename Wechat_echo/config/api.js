@@ -5,6 +5,6 @@ var WxApiRoot = "https://www.echowall.xin/"
 
 module.exports = {
   listUrl: WxApiRoot + "query",
-  contextUrl: WxApiRoot + "query/byid?",
-  listBoxUrl: WxApiRoot + "query/bybox?"
+  contextUrl: WxApiRoot + "query/byid",
+  listBoxUrl: WxApiRoot + "query/bybox"
 };
