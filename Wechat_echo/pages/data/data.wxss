@@ -200,6 +200,17 @@
   font-size:15px;
 }
 
+.tabLayer .coming{
+  width:280rpx;
+  height:60rpx;
+  line-height:60rpx;
+  float:left;
+  border: 0px;
+  margin:35rpx 0 0 200rpx;
+  font-size:15px;
+  color: #aaa;
+}
+
 .tabLayer .active{
   color:#5263EF;
   border-color:#5263EF;
