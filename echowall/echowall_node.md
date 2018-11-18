@@ -45,6 +45,8 @@
 		  |- function						# 公共方法：数据库连接操作等
 		  	  |- ...					
 		  |- query.js						# 回音壁信息查询
+		  |- hot.js 						# 关于按热度、点赞数等分类的模块
+		  |- comment.js 					# 评论相关模块
 		  |- test.js						# 测试
 	  |- node_modules
 	  |- public							# 静态文件

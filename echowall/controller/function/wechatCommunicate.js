@@ -1,6 +1,11 @@
+/*
+*	与微信服务相关的处理
+*/
+
 var request = require('request');
 var crypto = require('crypto');
-var database = require('./dbconnection');
+//var database = require('./dbconnection');
+var database = require('./dbPoolConnection');
 var config = require('../../config');
 
 function getSessionIDandOpenid(code) {
@@ -41,4 +46,67 @@ function getSessionIDandOpenid(code) {
     )
 }
 
+function verifySk(sk) {
+	// 检验小程序传来的 sk 是否存在
+	var redis_client = database.redis_connection();
+	return new Promise((resolve, reject) => {
+		redis_client.hexists('sessionID', sk, function(err, ret){
+			if (err) {
+				error = {
+		    		'status': "500",
+		    		'message':"redis query error"					
+				}
+				reject(error);
+			}
+			else{
+				resolve(ret);
+			}
+		});
+		redis_client.quit();	
+	})
+}
+
+function deleteSk(sk) {
+	// 当小程序端判断 session_key 已过时，清楚缓存中对应已过期的项
+	var redis_client = database.redis_connection();
+	return new Promise((resolve, reject) => {
+		redis_client.hdel('sessionID', sk, function(err, ret){
+			if (err) {
+				error = {
+		    		'status': "500",
+		    		'message':"redis delete error"					
+				}
+				reject(error);
+			}
+			else{
+				resolve(ret);
+			}
+		});
+		redis_client.quit();	
+	})	
+}
+
+function getUserInfo(openid) {
+	var mysql_client = database.connection();
+	return new Promise( (resolve, reject) => {
+		sql = "select * from userInfo where openid = ?";
+		database.query(mysql_client, openid, sql).then((data) => {
+			if (data)
+				resolve(data);
+			else{
+					error = {
+				    	'status': "500",
+				    	'message':"query error or openid is not exist",
+					}
+					reject(error);				
+			}
+		}, (err) => {
+				reject(err);	
+		});	
+	})
+}
+
 exports.getSessionIDandOpenid = getSessionIDandOpenid;
+exports.verifySk = verifySk;
+exports.deleteSk = deleteSk;
+exports.getUserInfo = getUserInfo;

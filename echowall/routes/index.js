@@ -18,7 +18,14 @@ module.exports = function(app){
     app.use('/query', query);   
 
     var user = require('../controller/user');
-    app.use('/user', user); 
+    app.use('/user', user);
 
+    var comment = require('../controller/comment');
+    app.use('/comment', comment);
 
+    var my = require('../controller/my');
+    app.use('/my', my); 
+
+    var hot = require('../controller/hot');
+    app.use('/hot', hot);      
 };

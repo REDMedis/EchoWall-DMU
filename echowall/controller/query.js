@@ -8,7 +8,10 @@
 */
 var express = require('express');
 var router = express.Router();
-var database = require('./function/dbconnection');
+//var database = require('./function/dbconnection');
+var database = require('./function/dbPoolConnection');
+var common = require('./function/common');
+var zset = "view_last_twoWeek";
 var per_page_count = 10;
 var page;
 var start;
@@ -42,10 +45,8 @@ router.post('/bybox', function(req, res, next) {
 	//处理不常用信箱，额外写一个 sql 语句
 	if (box_name === "其他") {
 		var box_types = req.body.types;
-		box_types = box_types.reduce((acc, item) => {
-			return  acc + "," + '\'' + item + '\'';
-		}, '\'' + box_types[0] + '\'');
-
+		box_types = common.arrayToString(box_types)		// 格式化数组
+		console.log(box_types);
 		sql = "SELECT id, title, box, date_format(time, '%Y-%m-%d %H:%i:%s') time \
 			FROM echowall WHERE box not in (" + box_types + ")\
 			ORDER BY time DESC limit " + start + ', ' + per_page_count;
@@ -120,11 +121,50 @@ router.get('/bykey', function(req, res) {
 // 根据 id 获取指定回音壁信息
 router.get('/byid', function(req, res) {
 	var connection = database.connection();
+	var redis_client = database.redis_connection();
 	var id =  req.query.id;
  	sql = "SELECT * FROM echowall WHERE id = ? ";
 	database.query(connection, id, sql).then((data) => {
-		if (data)
-			res.jsonp(data);
+		if (data) {
+			// 判断 redis 有序集合中是否已经存在该回音壁的 id 信息
+			database.redis_zscore(redis_client, zset, id).then((result) => {
+				if (result)
+					redis_client.zincrby(zset, 1, id, function(err, ret){
+						if (err) {
+							console.log(err);
+							res.jsonp({
+								"data": data,
+								"message": "redis zincrby error"
+							});
+						}
+						else{
+							res.jsonp({
+								"data": data,
+								"message": "redis zincrby success"
+							});							
+						}
+					});					
+				else
+					redis_client.zadd(zset, 1, id, function(err, ret){
+						if (err) {
+							console.log(err);
+							res.jsonp({
+								"data": data,
+								"message": "redis zadd error"
+							});
+						}
+						else{
+							res.jsonp({
+								"data": data,
+								"message": "redis zadd success"
+							});								
+						}
+					});
+				redis_client.quit();
+			}, (err) =>{
+				res.jsonp(err);
+			})
+		}
 		else
 			res.jsonp({
 		    	'status': "500",
@@ -134,6 +174,5 @@ router.get('/byid', function(req, res) {
 			res.jsonp(err);	
 	});
 });
-
 
 module.exports = router;

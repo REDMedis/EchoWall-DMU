@@ -42,7 +42,6 @@ function query(connection, values, sql) {
 		    		'status': "500",
 		    		'message':"query error"
 		    	}
-		    	console.log(err);
 		    	reject(result);
 		    }
 		    else{
