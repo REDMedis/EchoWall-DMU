@@ -5,6 +5,7 @@
 - Node.js
 - mysql
 - express
+- redis
 
 ## 使用说明
 
@@ -122,3 +123,7 @@ routes 中的 index.js 为路由分发控制总入口，在其中暴露的方法
 
 - [pm2: Node.js Production Process Manager with a built-in Load Balancer.](https://github.com/Unitech/pm2)
 - [PM2  使用介绍](https://segmentfault.com/a/1190000002539204)
+
+## 其他接口说明
+
+[interfaceExplanation.md](https://github.com/REDMedis/EchoWall-DMU/blob/master/echowall/interfaceExplanation.md)
