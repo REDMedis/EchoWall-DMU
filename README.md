@@ -1,7 +1,7 @@
 
 
 <div align="center">
-  <img src="https://github.com/REDMedis/EchoWall-DMU/blob/master/EchoWall_Logo2.png" style="margin:0"/ alt="Echo Wall Logo">
+  <img src="https://github.com/REDMedis/EchoWall-DMU/blob/master/EchoWall_Logo2.png" style="margin:0" alt="Echo Wall Logo" />
   <img src="https://img.shields.io/badge/release-v2.0.0-ff69b4.svg" style="margin:0" alt="release 2.0" />
   <img src="https://img.shields.io/badge/on-WeChat-green.svg" style="margin:0" alt="run on wechat" />
   <img src="https://img.shields.io/badge/node-v10.10.0-brightgreen.svg" style="margin:0"/ alt="using node 10.10.0" />
