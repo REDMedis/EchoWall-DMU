@@ -1,8 +1,7 @@
 # EchoWall-DMU
 
 <div align="center" style="font-size:1.5em">
-  <img rel="https://github.com/REDMedis/EchoWall-DMU/blob/master/EchoWall_Logo2.png" style="margin:0">Echo Wall</img>
-  <p style="margin:0">Echo Wall</p>
+  <img src="https://github.com/REDMedis/EchoWall-DMU/blob/master/EchoWall_Logo2.png" style="margin:0"/ alt="Echo Wall Logo">
 </div>
 
 EchoWall is an App on WeChat base on the DaLian Maritime University's student feedback mailbox called 'HuiYinBi'.
