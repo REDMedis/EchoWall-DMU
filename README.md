@@ -2,6 +2,7 @@
 
 <div align="center">
   <img src="https://github.com/REDMedis/EchoWall-DMU/blob/master/resources/title.png" style="margin:0" alt="Echo Wall Logo" />
+	<br>
  </div>
  <div align="center">
   <img src="https://img.shields.io/badge/release-v%201.0-%23ff69b4.svg" style="margin:0" alt="release 1.0" />
@@ -20,6 +21,7 @@ Compare to the feedback website of school, EchoWall provides a fancier and more 
 Official Ver 1.0 has been released on WeChat on Nov 21st, 2018.
 
 <div align="center">
-  <img src="https://github.com/REDMedis/EchoWall-DMU/blob/master/resources/QRcode.jpg" style="margin:0" alt="Echo Wall Logo" />
+  <br>
+  <img src="https://github.com/REDMedis/EchoWall-DMU/blob/master/resources/board.png" style="margin:0" alt="Echo Wall QR Code" />
  </div>
 
