@@ -4,7 +4,8 @@
   position: relative;
   height: 150rpx;
   margin-bottom: 20rpx;
-  background: linear-gradient(to bottom, #5263EF, #959FF5);
+  background: #000000;
+  /* background: linear-gradient(to bottom, #5263EF, #959FF5); */
 }
 
 .input{
