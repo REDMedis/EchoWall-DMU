@@ -126,4 +126,4 @@ routes 中的 index.js 为路由分发控制总入口，在其中暴露的方法
 
 ## 其他接口说明
 
-[interfaceExplanation.md](https://github.com/REDMedis/EchoWall-DMU/blob/master/echowall/interfaceExplanation.md)
+[interfaceExplanation.md](https://github.com/REDMedis/EchoWall-DMU/blob/master/documents/backend/interfaceExplanation.md)
