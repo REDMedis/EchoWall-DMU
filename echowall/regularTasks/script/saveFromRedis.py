@@ -17,18 +17,25 @@ def write_to_file(content):
 def save_to_mysql(db, parms):
 	# 使用cursor()方法获取操作游标 
 	cursor = db.cursor()
-	sql = "UPDATE echowall SET viewCount = viewCount + %s WHERE id = %s" 
+	sql_id = "select viewCount from echowall WHERE id = %s"
+	sql_add = "UPDATE echowall SET viewCount = viewCount + %s WHERE id = %s"
 	try:
-		# 执行sql语句
-		reCount = cursor.execute(sql, parms)
-		# 执行sql语句
-		db.commit()
-		result = "更新的回音壁信息 id：" + str(parms[1]) + "  " + time.asctime(time.localtime(time.time()));
+		# 事务开始
+		db.begin()
+		cursor.execute(sql_id, parms[1]) 
+		data = cursor.fetchone()
+		increase_viewCount = parms[0] - data[0]
+		# 更新
+		reCount = cursor.execute(sql_add, (increase_viewCount, parms[1]))
+		result = "id：" + str(parms[1]) + "  " + "新增浏览数：" + str(increase_viewCount) + "  " + time.asctime(time.localtime(time.time()));
 		print(result)
 		write_to_file(result)
-	except:
-		# 发生错误时回滚
-		db.rollback()
+	except Exception as e:
+		db.rollback()  # 事务回滚
+		print('事务处理失败', e)
+	else:
+		db.commit()  # 事务提交
+		print('-------事务处理成功---------')
 
 def get_from_redis(client, name):
 	view_last_twoWeek = client.zrange(name, 0, -1, withscores=True)
