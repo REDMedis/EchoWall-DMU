@@ -1,0 +1,8 @@
+{
+  "extends": ["eslint-config-egg", "prettier"],
+  "rules": {
+    "quotes": ["error", "single"],
+    "no-unused-vars": "warn",
+    "semi": "off"
+  },
+}
