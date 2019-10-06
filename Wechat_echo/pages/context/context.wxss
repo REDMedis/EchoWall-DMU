@@ -79,9 +79,10 @@
 }
 
 .time_context{
+  margin-top: 50rpx;
   font-size: 24rpx;
   margin-left: 50rpx;
-  color: #FFF;
+  color: #999;
   text-align: right;
 }
 

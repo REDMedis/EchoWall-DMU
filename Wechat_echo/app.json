@@ -1,12 +1,14 @@
 {
   "pages": [
     "pages/data/data",
-    "pages/context/context"
+    "pages/context/context",
+    "pages/my/my"
   ],
   "window": {
     "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#000000",
+    "navigationBarBackgroundColor": "#5263EF",
     "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "White"
-  }
+    "navigationBarTextStyle": "white"
+  },
+  "sitemapLocation": "sitemap.json"
 }

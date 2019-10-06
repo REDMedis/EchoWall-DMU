@@ -16,35 +16,25 @@ Page({
     echowall: {},
   },
 
-  getData: function(){
+  getData(){
     //取出缓存中的数据
-    var id = wx.getStorageSync('id');
-    let that = this;
-    var url = api.contextUrl;
-    var get_data = {
-      id: id
-    };
+    const id = wx.getStorageSync('id');
+    const url = api.contextUrl;
     // request data by GET
-    util.request(url, get_data).then(function (res) {
-      //遍历 json 来格式化时间数据
-      for (var index in res.data) {
-        var time = moment(res.data[index].time).format('YYYY-MM-DD HH:mm');
-        res.data[index].time = time;
-      }
+    util.request(url, { id }).then(res => {
       //初始化数据
-      that.setData({
+      this.setData({
         echowall: res.data[0],
       }, () => {
-        that.resetTitleBackHeight();
+        this.resetTitleBackHeight();
       });
     });
   },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad(options) {
     this.getData();
-    console.log(this.data.echowall);
   },
 
   /**
@@ -97,10 +87,9 @@ Page({
   },
 
   resetTitleBackHeight: function () {
-    var query = wx.createSelectorQuery();
-    var that = this;
-    if (that.data.echowall.title.length > 10)
-      that.setData({
+    const query = wx.createSelectorQuery();
+    if (this.data.echowall.title.length > 10)
+      this.setData({
         back_height: 300 + 'rpx'
       })
   }

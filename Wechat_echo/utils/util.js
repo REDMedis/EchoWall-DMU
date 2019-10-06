@@ -27,28 +27,26 @@ function request(url, data = {}, method = "GET"){
       data: data,
       header: {
         'Content-Type': 'application/json',
-        'X-Litemall-Token': wx.getStorageSync('token')
+        'X-Litemall-Token': wx.getStorageSync('token'),
       },
       method: method,
       dataType: 'json',
       responseType: 'text',
       success: function (res) {
-        resolve(res.data);
-        console.log(res.data);
+        // 直接上报数据
+        resolve(res);
+        console.log(res);
       },
       fail: function (res) {
-        console.log(res.data);
+        reject(res.status)
+        console.log(res);
       },
       complete: function (res) {
-        console.log(res.data);
       },
     })
   });
 }
 
-function fuck(){
-  console.log("fuck");
-}
 
 module.exports = {
   formatTime: formatTime,
